@@ -15,6 +15,20 @@ setInterval(() => {
 http.get(`http://lusthaven-bot.herokuapp.com`);
 }, 280000);
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
+  user: "lp9jqcnuxovfx1yk",
+  password: `process.env.DBP`,
+  database: "yoaxdyb3zxro77km"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
