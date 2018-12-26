@@ -58,7 +58,7 @@ client.on("message", async message => {
 	  let xp = rows[0].xp;
 	  sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
 	}
-	con.query(sql, console.log);
+	con.query(sql);
   });
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
