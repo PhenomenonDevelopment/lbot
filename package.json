@@ -13,7 +13,8 @@
     "discord.js": "^11.3.2",
     "roblox-js": "^4.0.2",
     "express.js": "^1.0.0",
-    "http": "^0.0.0"
+    "http": "^0.0.0",
+	"mysql": "^2.16.0"
   },
   "engines": {
     "node": "9.x"
