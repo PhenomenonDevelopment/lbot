@@ -79,7 +79,7 @@ client.on("message", async message => {
   }
 
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
-	if(err) throw err;
+	if(err) return console.error(err);
 	let sql;
 	if(rows.length <1) {
 	  sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
