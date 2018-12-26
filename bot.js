@@ -60,8 +60,7 @@ client.on("message", async message => {
 	}
 	con.query(sql, console.log);
   });
-  
-  if (message.content.indexOf(prefix) !== 0) {
+  if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
@@ -79,16 +78,6 @@ client.on("message", async message => {
     client.channels.get(modlogs).send({embed});
   } catch (err) {
     console.error(err);
-  }} else {
-	const embed = new Discord.RichEmbed()
-	  .setAuthor("Action logger")
-	  .setColor(0x00AE86)
-	  .addField("Type:", `Message`)
-	  .addField("Contents:",`*${message}*`)
-	  .addField("Server:", `${message.guild.name}`)
-	  .addField("Channel:", `${message.channel.name}`)
-	  .setFooter(`Version: ${version}`);
-	client.channels.get('527605713418059818').send({embed});  
   }
 });
 
