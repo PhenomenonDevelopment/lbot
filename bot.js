@@ -20,7 +20,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
   user: "lp9jqcnuxovfx1yk",
-  password: `process.env.DBP`,
+  password: process.env.DBP,
   database: "yoaxdyb3zxro77km"
 });
 
