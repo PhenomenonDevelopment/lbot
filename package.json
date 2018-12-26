@@ -1,0 +1,28 @@
+{
+  "//1": "Bot",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "",
+  "name": "phantomdevelopment-discord-bot",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "discord.js": "^11.3.2",
+    "roblox-js": "^4.0.2",
+    "express.js": "^1.0.0",
+    "http": "^0.0.0"
+  },
+  "engines": {
+    "node": "9.x"
+  },
+  "repository": {
+    "url": "https://github.com/aj2958/phantomdevelopment-dcd-bot"
+  },
+  "license": "MIT",
+  "keywords": [
+    "bot"
+  ]
+}
