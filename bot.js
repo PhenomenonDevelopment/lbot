@@ -77,7 +77,7 @@ client.on("message", async message => {
   } catch (err) {
     console.error(err);
   }
-  if(message.channel.type === "dm") return;
+
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
 	if(err) throw err;
 	let sql;
