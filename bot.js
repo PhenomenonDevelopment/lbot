@@ -7,8 +7,7 @@ const app = express();//
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
-const logs = "521873059204825172";
-const modlogs = "521885446876299265";
+const modlogs = "527603893132197944";
 const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
