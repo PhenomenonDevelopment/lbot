@@ -13,7 +13,7 @@ const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
 setInterval(() => {
-http.get(`${process.env.HOST}`);
+http.get(`http://lusthaven-bot.herokuapp.com`);
 }, 280000);
 
 fs.readdir("./events/", (err, files) => {
