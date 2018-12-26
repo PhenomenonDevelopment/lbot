@@ -1,8 +1,10 @@
 const Discord = module.require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-	if(!message.member.roles.some(r=>["Developer"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+	let creatorRole = message.guild.roles.find("name", "Creator");
+  let adminRole = message.guild.roles.find("name", "Admin");
+  let modRole = message.guild.roles.find("name", "Mod");
+  if(message.member.roles.has(creatorRole) || message.member.roles.has(adminRole) || message.member.roles.has(modRole)) return message.reply("Sorry, you do not have permission to run this command!");
 	let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
 		return message.reply("Please mention a valid member of this server");

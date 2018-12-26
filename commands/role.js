@@ -2,7 +2,10 @@ const Discord = module.require("discord.js");
 const client = new Discord.Client();
 
 module.exports.run = async (client, message, args) => {
-  if (message.author.id !== '501649887411175435') return message.reply("Sorry pal, you can't do that.");
+  let creatorRole = message.guild.roles.find("name", "Creator");
+  let adminRole = message.guild.roles.find("name", "Admin");
+  let modRole = message.guild.roles.find("name", "Mod");
+  if(message.member.roles.has(creatorRole) || message.member.roles.has(adminRole) || message.member.roles.has(modRole)) return message.reply("Sorry, you do not have permission to run this command!");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!rMember) return message.reply("Couldn't find that user, yo.");
   let role = args[1];
