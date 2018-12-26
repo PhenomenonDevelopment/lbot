@@ -49,6 +49,17 @@ function generateXp() {
 
 client.on("message", async message => {
   if (message.author.bot) return;
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
+	if(err) return console.error(err);
+	let sql;
+	if(rows.length <1) {
+	  sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
+	} else {
+	  let xp = rows[0].xp;
+	  sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
+	}
+	con.query(sql, console.log);
+  });
   const embed = new Discord.RichEmbed()
 	  .setAuthor("Action logger")
 	  .setColor(0x00AE86)
@@ -77,18 +88,6 @@ client.on("message", async message => {
   } catch (err) {
     console.error(err);
   }
-
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
-	if(err) return console.error(err);
-	let sql;
-	if(rows.length <1) {
-	  sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
-	} else {
-	  let xp = rows[0].xp;
-	  sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-	}
-	con.query(sql, console.log);
-  });
 });
 
 client.login(discord_token);
