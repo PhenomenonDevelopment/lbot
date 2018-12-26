@@ -28,6 +28,15 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
+  const embed = new Discord.RichEmbed()
+	  .setAuthor("Action logger")
+	  .setColor(0x00AE86)
+	  .addField("Type:", `Message`)
+	  .addField("Contents:",`*${message}*`)
+	  .addField("Server:", `${message.guild.name}`)
+	  .addField("Channel:", `${message.channel.name}`)
+	  .setFooter(`Version: ${version}`);
+  client.channels.get('527605713418059818').send({embed});
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -36,7 +45,7 @@ client.on("message", async message => {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
 	const embed = new Discord.RichEmbed()
-	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
+	  .setAuthor("Command Logger")
 	  .setColor(0x00AE86)
 	  .addField("Command:", `*${command}*`)
 	  .addField("Args:",`*${args}*`)
