@@ -51,7 +51,7 @@ client.on('messageUpdate', (omsg, nmsg) => {
 	.addField("New Content:", `${nmsg.content}`)
 	.addField("Channel:", `${omsg.channel.name}`)
     .setFooter(`Version: ${version}`);
-  client.channels.get(modlogs).send({embed});
+  client.channels.get('527605713418059818').send({embed});
 });
 
 client.on("message", async message => {
