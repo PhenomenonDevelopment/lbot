@@ -55,6 +55,18 @@ client.on('messageUpdate', (omsg, nmsg) => {
   client.channels.get('527605713418059818').send({embed});
 });
 
+client.on('messageDeleted', (omsg) => {
+  const embed = new Discord.RichEmbed()
+	.setAuthor("Message Deleted")
+	.setColor(0x00AE86)
+	.addField("Message ID:", `${omsg.id}`)
+	.addField("Content:",`${omsg.content}`)
+	.addField("Author:", `${nmsg.author.name}`)
+	.addField("Channel:", `${omsg.channel.name}`)
+    .setFooter(`Version: ${version}`);
+  client.channels.get('527605713418059818').send({embed});
+});
+
 client.on("message", async message => {
   if (message.author.bot) return;
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
