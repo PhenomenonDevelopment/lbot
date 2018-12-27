@@ -24,11 +24,6 @@ var con = mysql.createConnection({
   database: "yoaxdyb3zxro77km"
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -46,6 +41,18 @@ function generateXp() {
 	
 	return Math.floor(Math.random() *(max - min + 1)) + min;	
 }
+
+client.on('messageUpdate', (omsg, nmsg) => {
+  const embed = new Discord.RichEmbed()
+	.setAuthor("Message Updated")
+	.setColor(0x00AE86)
+	.addField("Message ID:", `*${omsg.id}*`)
+	.addField("Old Content:",`*${omsg.content}*`)
+	.addField("New Content:", `${nmsg.content}`)
+	.addField("Channel:", `${omsg.channel.name}`)
+    .setFooter(`Version: ${version}`);
+  client.channels.get(modlogs).send({embed});
+});
 
 client.on("message", async message => {
   if (message.author.bot) return;
