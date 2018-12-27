@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
   let modRole = message.guild.roles.find("name", "Mod");
   if(message.member.roles.has(creatorRole) || message.member.roles.has(adminRole) || message.member.roles.has(modRole)) return message.reply("Sorry, you do not have permission to run this command!");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!rMember) return message.reply("Couldn't find that user, yo.");
+  if(!rMember) return message.reply("Couldn't find that user.");
   let role = args[1];
   if(!role) return message.reply("Specify a role!");
   let gRole = message.guild.roles.find(`name`, role);
