@@ -42,29 +42,6 @@ function generateXp() {
 	return Math.floor(Math.random() *(max - min + 1)) + min;	
 }
 
-client.on('messageUpdate', (omsg, nmsg) => {
-  const embed = new Discord.RichEmbed()
-	.setColor(0x00AE86)
-	.addField("Message ID:", `${omsg.id}`)
-	.addField("Old Content:",`${omsg.content}`)
-	.addField("New Content:", `${nmsg.content}`)
-	.addField("Author:", `${nmsg.author.name}`)
-	.addField("Channel:", `${omsg.channel.name}`)
-    .setFooter(`Version: ${version}`);
-  client.channels.get('527605713418059818').send({embed});
-});
-
-client.on('messageDelete', msg => {
-  const embed = new Discord.RichEmbed()
-	.setColor(0x00AE86)
-	.addField("Message ID:", `${msg.id}`)
-	.addField("Content:",`${msg.content}`)
-	.addField("Author:", `${msg.author.name}`)
-	.addField("Channel:", `${msg.channel.name}`)
-    .setFooter(`Version: ${version}`);
-  client.channels.get('527605713418059818').send({embed});
-});
-
 client.on("message", async message => {
   if (message.author.bot) return;
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
