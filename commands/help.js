@@ -3,7 +3,6 @@ const prefix = process.env.PREFIX;
 const version = process.env.VERSION;
 
 module.exports.run = async (client, message, args) => {
-	let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 	const embed = new Discord.RichEmbed()
 	.setColor("#ff921e")
 	.addField(`Bot-Prefix:`, `${prefix}`)
