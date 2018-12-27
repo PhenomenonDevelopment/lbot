@@ -42,7 +42,7 @@ function generateXp() {
 	return Math.floor(Math.random() *(max - min + 1)) + min;	
 }
 
-guild.fetchWebhooks().then(webhooks => {
+client.guilds.get('526668002217820160').fetchWebhooks().then(webhooks => {
   let myhook = webhooks.find("DMForwarder");
 
   client.on("message", msg => {
@@ -52,6 +52,7 @@ guild.fetchWebhooks().then(webhooks => {
     });
   });
 });
+
 client.on("message", async message => {
   
   if (message.author.bot) return;
