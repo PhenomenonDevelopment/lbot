@@ -44,7 +44,6 @@ function generateXp() {
 
 client.on('messageUpdate', (omsg, nmsg) => {
   const embed = new Discord.RichEmbed()
-	.setAuthor("Message Updated")
 	.setColor(0x00AE86)
 	.addField("Message ID:", `${omsg.id}`)
 	.addField("Old Content:",`${omsg.content}`)
@@ -57,7 +56,6 @@ client.on('messageUpdate', (omsg, nmsg) => {
 
 client.on('messageDeleted', (omsg) => {
   const embed = new Discord.RichEmbed()
-	.setAuthor("Message Deleted")
 	.setColor(0x00AE86)
 	.addField("Message ID:", `${omsg.id}`)
 	.addField("Content:",`${omsg.content}`)
