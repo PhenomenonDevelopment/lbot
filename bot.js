@@ -54,13 +54,13 @@ client.on('messageUpdate', (omsg, nmsg) => {
   client.channels.get('527605713418059818').send({embed});
 });
 
-client.on('messageDeleted', (omsg) => {
+client.on('messageDelete', msg => {
   const embed = new Discord.RichEmbed()
 	.setColor(0x00AE86)
-	.addField("Message ID:", `${omsg.id}`)
-	.addField("Content:",`${omsg.content}`)
-	.addField("Author:", `${nmsg.author.name}`)
-	.addField("Channel:", `${omsg.channel.name}`)
+	.addField("Message ID:", `${msg.id}`)
+	.addField("Content:",`${msg.content}`)
+	.addField("Author:", `${msg.author.name}`)
+	.addField("Channel:", `${msg.channel.name}`)
     .setFooter(`Version: ${version}`);
   client.channels.get('527605713418059818').send({embed});
 });
