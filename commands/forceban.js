@@ -1,8 +1,8 @@
 const Discord = module.require("discord.js");
-const modlog = "521885446876299265";
+const modlog = "527603893132197944";
 
 module.exports.run = async (client, message, args) => {
-    if(!message.member.roles.some(r=>["Developer"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Creator"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     const Discord = require('discord.js');
