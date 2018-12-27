@@ -42,19 +42,10 @@ function generateXp() {
 	return Math.floor(Math.random() *(max - min + 1)) + min;	
 }
 
-client.guilds.get('526668002217820160').fetchWebhooks().then(webhooks => {
-  let myhook = webhooks.find("DMForwarder");
-
-  client.on("message", msg => {
-    if (msg.channel.type == "dm") myhook.send(msg.content, {
-      username: msg.author.username,
-      avatarURL: msg.author.avatarURL,
-    });
-  });
-});
-
 client.on("message", async message => {
-  
+  if (message.type == "dm") {
+	bot.users.get("501649887411175435").send(message) 
+  }
   if (message.author.bot) return;
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
 	if(err) return console.error(err);
