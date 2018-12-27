@@ -46,9 +46,10 @@ client.on('messageUpdate', (omsg, nmsg) => {
   const embed = new Discord.RichEmbed()
 	.setAuthor("Message Updated")
 	.setColor(0x00AE86)
-	.addField("Message ID:", `*${omsg.id}*`)
-	.addField("Old Content:",`*${omsg.content}*`)
+	.addField("Message ID:", `${omsg.id}`)
+	.addField("Old Content:",`${omsg.content}`)
 	.addField("New Content:", `${nmsg.content}`)
+	.addField("Author:", `${nmsg.author.name}`)
 	.addField("Channel:", `${omsg.channel.name}`)
     .setFooter(`Version: ${version}`);
   client.channels.get('527605713418059818').send({embed});
