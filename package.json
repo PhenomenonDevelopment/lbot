@@ -14,7 +14,11 @@
     "roblox-js": "^4.0.2",
     "express.js": "^1.0.0",
     "http": "^0.0.0",
-	"mysql": "^2.16.0"
+	"mysql": "^2.16.0",
+	"snekfetch": "^0.0.0",
+	"fs": "^0.0.0",
+	"pornsearch": "^0.0.0",
+	"random-puppy": "^0.0.0"
   },
   "engines": {
     "node": "9.x"
