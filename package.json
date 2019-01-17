@@ -15,10 +15,10 @@
     "express.js": "^1.0.0",
     "http": "^0.0.0",
 	"mysql": "^2.16.0",
-	"snekfetch": "^0.0.0",
+	"snekfetch": "4.0.4",
 	"fs": "^0.0.0",
 	"pornsearch": "2.4.3",
-	"random-puppy": "^0.0.0"
+	"random-puppy": "1.1.0"
   },
   "engines": {
     "node": "9.x"
