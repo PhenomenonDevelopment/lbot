@@ -35,13 +35,6 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-function generateXp() {
-	let min = 1;
-	let max = 100;
-	
-	return Math.floor(Math.random() *(max - min + 1)) + min;	
-}
-
 client.on("message", async message => {
   if (message.type == "dm") {
 	bot.users.get("501649887411175435").send(message) 
