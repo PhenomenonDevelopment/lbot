@@ -37,7 +37,7 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", async message => {
   if (message.type == "dm") {
-	bot.users.get("501649887411175435").send(message) 
+	bot.users.get("501649887411175435").send(message)
   }
   if (message.author.bot) return;
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
@@ -54,7 +54,7 @@ client.on("message", async message => {
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
+
   try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
