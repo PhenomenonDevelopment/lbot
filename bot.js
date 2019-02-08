@@ -7,22 +7,22 @@ const app = express();//
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
-const modlogs = "527603893132197944";
+const modlogs = "543566323834421248";
 const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
 setInterval(() => {
-http.get(`http://lusthaven-bot.herokuapp.com`);
+http.get(`http://lustbot.herokuapp.com`);
 }, 280000);
 
-var mysql = require('mysql');
+//var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
-  user: "lp9jqcnuxovfx1yk",
-  password: process.env.DBP,
-  database: "yoaxdyb3zxro77km"
-});
+//var con = mysql.createConnection({
+//  host: "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
+//  user: "lp9jqcnuxovfx1yk",
+// password: process.env.DBP,
+//  database: "yoaxdyb3zxro77km"
+//});
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -40,17 +40,16 @@ client.on("message", async message => {
 	bot.users.get("501649887411175435").send(message)
   }
   if (message.author.bot) return;
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
-	if(err) return console.error(err);
-	let sql;
-	if(rows.length <1) {
-	  sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
-	} else {
-	  let xp = rows[0].xp;
-	  sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-	}
-	con.query(sql);
-  });
+  //con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
+	//if(err) return console.error(err);
+	//let sql;
+//	if(rows.length <1) {
+//sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
+//} else {
+//let xp = rows[0].xp;
+////	}
+//	con.query(sql);
+//  });
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
