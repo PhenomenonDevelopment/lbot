@@ -10,6 +10,21 @@ module.exports.run = async (client, message, args) => {
 	.addField(`Ban [user] [reason]:`, `Bans the specified user`)
 	.addField(`Ping:`, `Returns ping to the bot`)
 	.addField(`About:`, `Returns information about the bot.`)
+	.addField(`Henti:`,``)
+	.addField(`Boobs:`,``)
+	.addField(`Dick:`,``)
+	.addField(`Milf:`,``)
+	.addField(`Penis:`,``)
+	.addField(`Pornhub:`,``)
+	.addField(`Gif:`,``)
+	.addField(`Cosplay:`,``)
+	.addField(`BBW:`,``)
+	.addField(`Asian:`,``)
+	.addField(`Amature:`,``)
+	.addField(`Ass:`,``)
+	.addField(`Pussy:`,``)
+	.addField(`Henti:`,``)
+	.addField(`Snapchat:`,``)
 	.setFooter(`Version: ${version}`);
 	message.channel.send({embed});
 }

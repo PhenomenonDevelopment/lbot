@@ -36,9 +36,6 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.on("message", async message => {
-  if (message.type == "dm") {
-	bot.users.get("501649887411175435").send(message)
-  }
   if (message.author.bot) return;
   //con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
 	//if(err) return console.error(err);
